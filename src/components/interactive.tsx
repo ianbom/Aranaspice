@@ -24,7 +24,7 @@ export function Header({ locale }: { locale: Locale }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const home = pathname === `/${locale}`;
+  const overlay = navigation.some((route) => pathname === `/${locale}${route}`);
   useEffect(() => {
     const update = () => setScrolled(window.scrollY > 32);
     const frame = requestAnimationFrame(update);
@@ -32,7 +32,7 @@ export function Header({ locale }: { locale: Locale }) {
     return () => { cancelAnimationFrame(frame); window.removeEventListener("scroll", update); };
   }, [pathname]);
   const titles = [text.home, text.about, text.products, text.sustainability, text.contact];
-  return <header className={`site-header${home ? " header-home" : ""}${scrolled ? " header-scrolled" : ""}`}>
+  return <header className={`site-header${overlay ? " header-home" : ""}${scrolled ? " header-scrolled" : ""}`}>
     <a className="skip-link" href="#main">{text.skip}</a>
     <div className="header-inner">
       <Link href={`/${locale}`} className="brand" aria-label={`Aranaspice — ${text.home}`}><Image src="/images/aranaspice-logo.webp" alt="Aranaspice" width={96} height={96} priority /></Link>

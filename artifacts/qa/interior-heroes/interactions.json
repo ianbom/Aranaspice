@@ -1,0 +1,59 @@
+[
+  {
+    "check": "anchor, menu, Escape focus return, runtime errors",
+    "result": "pass",
+    "locale": "en",
+    "state": {
+      "hash": "#about-content",
+      "top": 87.20000457763672,
+      "headerHeight": 78.80000305175781,
+      "hidden": 0
+    }
+  },
+  {
+    "check": "anchor, menu, Escape focus return, runtime errors",
+    "result": "pass",
+    "locale": "ar",
+    "state": {
+      "hash": "#about-content",
+      "top": 87.20000457763672,
+      "headerHeight": 78.80000305175781,
+      "hidden": 0
+    }
+  },
+  {
+    "check": "catalog filters",
+    "result": "pass",
+    "counts": [
+      10,
+      5,
+      1,
+      16
+    ]
+  },
+  {
+    "check": "language switcher retains four page routes",
+    "result": "pass"
+  },
+  {
+    "check": "validation, Unicode WhatsApp intercepted, retained input/manual link",
+    "result": "pass",
+    "locale": "en",
+    "inquiry_sent": false
+  },
+  {
+    "check": "validation, Unicode WhatsApp intercepted, retained input/manual link",
+    "result": "pass",
+    "locale": "ar",
+    "inquiry_sent": false
+  },
+  {
+    "check": "reduced motion hero",
+    "result": "pass"
+  },
+  {
+    "check": "JS-disabled SSR hero screenshot",
+    "result": "pass",
+    "limitation": "interactive features require JavaScript"
+  }
+]

@@ -162,6 +162,9 @@ html[data-intro-seen] .boot-splash { display: none; }
 .hero::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, #101a15eb 0%, #101a15b8 36%, #101a1520 76%), linear-gradient(180deg, #101a154d, transparent 30%, #101a1566); }
 .hero-inner { min-height: clamp(760px, 100svh, 940px); display: flex; flex-direction: column; justify-content: center; padding-top: 180px; padding-bottom: 100px; position: relative; }
 .hero-content { width: min(680px, 60%); margin-right: auto; margin-left: 0; }
+.hero-interior .hero-content { min-width: 0; }
+.hero-interior .hero-content h1 { overflow-wrap: anywhere; }
+.hero-interior .hero-background { object-position: var(--hero-position, center); }
 .hero-content .eyebrow { color: var(--warm-ivory); font-size: 10px; }
 .hero-content h1 { font-size: clamp(42px, 4.3vw, 64px); line-height: 1.15; letter-spacing: -.045em; margin-top: 24px; }
 .hero-description { max-width: 530px; margin-top: 30px; font-size: 15px; line-height: 1.9; color: var(--warm-ivory); }
@@ -569,6 +572,10 @@ html[lang="zh"] .hero-content h1 { font-size: clamp(40px, 4.3vw, 64px); }
   .hero-description { font-size: 14px; margin-top: 25px; }
   .hero-actions { align-items: flex-start; flex-direction: column; gap: 12px; margin-top: 28px; }
   .hero-background { object-position: 38% center; }
+  .hero-about { --hero-position: 66% center; }
+  .hero-products { --hero-position: 72% center; }
+  .hero-sustainability { --hero-position: 72% center; }
+  .hero-contact { --hero-position: 66% center; }
   html[lang="ar"] .hero-content h1 { font-size: 39px; }
   html[lang="zh"] .hero-content h1 { font-size: 40px; }
 }

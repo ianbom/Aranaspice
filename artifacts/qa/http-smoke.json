@@ -1,5 +1,5 @@
 {
-  "origin": "http://localhost:3109",
+  "origin": "http://localhost:3110",
   "pages": [
     {
       "path": "/en",
@@ -338,7 +338,7 @@
       "status": 200
     }
   ],
-  "resources": 128,
+  "resources": 132,
   "pdf": "SHA-256 matches original",
   "invalidRoutes": "404",
   "sitemap": 84

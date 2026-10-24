@@ -10,13 +10,21 @@ export function DocumentLinks({ locale }: { locale: Locale }) {
   return <div className="document-links"><a href={company.pdf} download="Aranaspice-Company-Profile-2026.pdf"><Download size={18} aria-hidden="true" />{text.catalog}</a><a href={company.pdf} download="Aranaspice-Company-Profile-2026.pdf"><Download size={18} aria-hidden="true" />{text.profile}</a><p>{text.sameDocument}</p></div>;
 }
 
-export function Hero({ locale }: { locale: Locale }) {
+export function Hero({ locale, page }: { locale: Locale; page?: "about" | "products" | "sustainability" | "contact" }) {
   const text = getCopy(locale);
-  return <section className="hero dark-section">
-    <Image className="hero-background" src="/images/spices-hero.webp" alt="" fill sizes="100vw" priority />
+  const headings = {
+    about: { eyebrow: text.about, title: text.aboutTitle, body: undefined },
+    products: { eyebrow: text.rangeEyebrow, title: text.catalogTitle, body: text.catalogBody },
+    sustainability: { eyebrow: text.sustainability, title: text.sustainTitle, body: text.sustainBody },
+    contact: { eyebrow: text.contact, title: text.contactTitle, body: text.contactBody },
+  };
+  const heading = page ? headings[page] : { eyebrow: text.heroEyebrow, title: text.heroTitle, body: text.heroBody };
+  const target = page ? (page === "products" ? "catalog" : `${page}-content`) : "story";
+  return <section className={`hero dark-section${page ? ` hero-interior hero-${page}` : ""}`}>
+    <Image className="hero-background" src={`/images/${page ? `${page}-hero` : "spices-hero"}.webp`} alt="" fill sizes={page ? "(max-width: 850px) 1920px, 100vw" : "100vw"} priority />
     <div className="wrap hero-inner">
-      <div className="hero-content"><p className="eyebrow">{text.heroEyebrow}</p><h1>{text.heroTitle}</h1><p className="hero-description">{text.heroBody}</p><div className="hero-actions"><Link className="button gold" href={`/${locale}/contact`}>{text.quote}<ArrowUpRight size={19} aria-hidden="true" /></Link><a className="hero-download" href={company.pdf} download>{text.profile}<Download size={16} aria-hidden="true" /></a></div></div>
-      <div className="hero-foot"><span>{text.scroll}</span><a href="#story" aria-label={text.about}><ArrowDown size={20} /></a><span>PT. SARI BHUWANA NUSAJAYA</span></div>
+      <div className="hero-content"><p className="eyebrow">{heading.eyebrow}</p><h1>{heading.title}</h1>{heading.body && <p className="hero-description">{heading.body}</p>}{!page && <div className="hero-actions"><Link className="button gold" href={`/${locale}/contact`}>{text.quote}<ArrowUpRight size={19} aria-hidden="true" /></Link><a className="hero-download" href={company.pdf} download>{text.profile}<Download size={16} aria-hidden="true" /></a></div>}</div>
+      <div className="hero-foot"><span>{text.scroll}</span><a href={`#${target}`} aria-label={page ? text.scroll : text.about}><ArrowDown size={20} /></a><span>PT. SARI BHUWANA NUSAJAYA</span></div>
     </div>
   </section>;
 }
@@ -52,7 +60,7 @@ export function ExportMap({ locale }: { locale: Locale }) {
 
 export function SustainabilitySection({ locale, full = false }: { locale: Locale; full?: boolean }) {
   const text = getCopy(locale);
-  return <section className="section sustainability-section"><div className="wrap"><div className="sustainability-intro"><div data-motion="rise"><p className="eyebrow">{text.sustainEyebrow}</p><h2>{text.sustainTitle}</h2></div><div data-motion="from-end"><p className="body-copy">{text.sustainBody}</p>{!full && <Link href={`/${locale}/sustainability`} className="text-link">{text.commitments}<ArrowUpRight size={19} aria-hidden="true" /></Link>}</div></div>
+  return <section id={full ? "sustainability-content" : undefined} className="section sustainability-section"><div className="wrap"><div className="sustainability-intro"><div data-motion="rise"><p className="eyebrow">{text.sustainEyebrow}</p><h2>{text.sustainTitle}</h2></div><div data-motion="from-end"><p className="body-copy">{text.sustainBody}</p>{!full && <Link href={`/${locale}/sustainability`} className="text-link">{text.commitments}<ArrowUpRight size={19} aria-hidden="true" /></Link>}</div></div>
     {full ? <div className="sdg-grid">{sdgs.map((sdg) => <article className="sdg-item" data-motion="list-item" key={sdg.number}><Image data-motion="icon" src={`/images/sdg-${sdg.number}.webp`} alt={`SDG ${sdg.number}: ${sdg.title[locale]}`} width={130} height={130} /><div><span className="eyebrow">SDG {sdg.number}</span><h3>{sdg.title[locale]}</h3><p>{sdg.body[locale]}</p></div></article>)}</div> : <div className="sdg-strip">{sdgs.map((sdg) => <Image data-motion="icon" key={sdg.number} src={`/images/sdg-${sdg.number}.webp`} alt={`SDG ${sdg.number}: ${sdg.title[locale]}`} width={130} height={130} />)}</div>}
     <p className="source-note">{text.sdgNote}</p></div></section>;
 }
@@ -83,7 +91,7 @@ export function PageHeading({ eyebrow, title, body }: { eyebrow: string; title: 
 
 export function AboutContent({ locale }: { locale: Locale }) {
   const text = getCopy(locale);
-  return <><section className="section"><div className="wrap about-layout"><div className="about-photo" data-motion="image-mask"><Image src="/images/whole-editorial.webp" alt={text.wholeBody} fill sizes="(max-width: 700px) 90vw, 45vw" priority /></div><div data-motion="from-end"><p className="eyebrow">PT. SARI BHUWANA NUSAJAYA / 2018</p><h2>{text.introTitle}</h2><p className="body-copy">{text.introBody}</p><div className="vision"><h3>{text.vision}</h3><p>{text.visionBody}</p></div></div></div></section><section className="section dark-section"><div className="wrap mission-layout"><div data-motion="rise"><p className="eyebrow">ARANASPICE</p><h2>{text.mission}</h2></div><ol>{missions.map((mission, index) => <li key={index} data-motion="list-item"><span>0{index + 1}</span><p>{mission[locale]}</p></li>)}</ol></div></section><section className="section values-section"><div className="wrap"><h2>{text.values}</h2><div className="values-list">{values.map((value, index) => <div key={index} data-motion="list-item"><span aria-hidden="true">{"SPICE"[index]}</span><h3>{value[locale]}</h3></div>)}</div><div className="advantages"><h3>{text.advantages}</h3><p>{text.advantagesBody}</p></div></div></section></>;
+  return <><section id="about-content" className="section"><div className="wrap about-layout"><div className="about-photo" data-motion="image-mask"><Image src="/images/whole-editorial.webp" alt={text.wholeBody} fill sizes="(max-width: 700px) 90vw, 45vw" priority /></div><div data-motion="from-end"><p className="eyebrow">PT. SARI BHUWANA NUSAJAYA / 2018</p><h2>{text.introTitle}</h2><p className="body-copy">{text.introBody}</p><div className="vision"><h3>{text.vision}</h3><p>{text.visionBody}</p></div></div></div></section><section className="section dark-section"><div className="wrap mission-layout"><div data-motion="rise"><p className="eyebrow">ARANASPICE</p><h2>{text.mission}</h2></div><ol>{missions.map((mission, index) => <li key={index} data-motion="list-item"><span>0{index + 1}</span><p>{mission[locale]}</p></li>)}</ol></div></section><section className="section values-section"><div className="wrap"><h2>{text.values}</h2><div className="values-list">{values.map((value, index) => <div key={index} data-motion="list-item"><span aria-hidden="true">{"SPICE"[index]}</span><h3>{value[locale]}</h3></div>)}</div><div className="advantages"><h3>{text.advantages}</h3><p>{text.advantagesBody}</p></div></div></section></>;
 }
 
 export function ProductDetail({ locale, product }: { locale: Locale; product: Product }) {
@@ -94,5 +102,5 @@ export function ProductDetail({ locale, product }: { locale: Locale; product: Pr
 
 export function ContactContent({ locale }: { locale: Locale }) {
   const text = getCopy(locale);
-  return <section className="section contact-section"><div className="wrap contact-layout"><div className="contact-info"><h2 data-motion="fade">{company.name}</h2><div data-motion="list-item"><MapPin size={21} aria-hidden="true" /><div><h3>{text.address}</h3><address>{company.address}</address></div></div><div data-motion="list-item"><Mail size={21} aria-hidden="true" /><div><h3>{text.email}</h3><a href={`mailto:${company.email}`}><bdi>{company.email}</bdi></a></div></div><div data-motion="list-item"><Phone size={21} aria-hidden="true" /><div><h3>{text.phone}</h3><a href="tel:+628123381141"><bdi>{company.phone}</bdi></a><a href="tel:+6281336542475"><bdi>{company.phoneSecondary}</bdi></a></div></div><div data-motion="list-item"><AtSign size={21} aria-hidden="true" /><div><h3>{text.follow}</h3><a href="https://www.instagram.com/saribhuwana/" target="_blank" rel="noopener noreferrer"><bdi>@saribhuwana</bdi></a><a href="https://www.instagram.com/aranaspice.id/" target="_blank" rel="noopener noreferrer"><bdi>@aranaspice.id</bdi></a></div></div><DocumentLinks locale={locale} /></div><InquiryForm locale={locale} /></div></section>;
+  return <section id="contact-content" className="section contact-section"><div className="wrap contact-layout"><div className="contact-info"><h2 data-motion="fade">{company.name}</h2><div data-motion="list-item"><MapPin size={21} aria-hidden="true" /><div><h3>{text.address}</h3><address>{company.address}</address></div></div><div data-motion="list-item"><Mail size={21} aria-hidden="true" /><div><h3>{text.email}</h3><a href={`mailto:${company.email}`}><bdi>{company.email}</bdi></a></div></div><div data-motion="list-item"><Phone size={21} aria-hidden="true" /><div><h3>{text.phone}</h3><a href="tel:+628123381141"><bdi>{company.phone}</bdi></a><a href="tel:+6281336542475"><bdi>{company.phoneSecondary}</bdi></a></div></div><div data-motion="list-item"><AtSign size={21} aria-hidden="true" /><div><h3>{text.follow}</h3><a href="https://www.instagram.com/saribhuwana/" target="_blank" rel="noopener noreferrer"><bdi>@saribhuwana</bdi></a><a href="https://www.instagram.com/aranaspice.id/" target="_blank" rel="noopener noreferrer"><bdi>@aranaspice.id</bdi></a></div></div><DocumentLinks locale={locale} /></div><InquiryForm locale={locale} /></div></section>;
 }

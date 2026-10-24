@@ -1,0 +1,42 @@
+[
+  {
+    "file": "en-1440-home.jpg",
+    "mean_absolute_pixel_error": 0.0,
+    "identical": true
+  },
+  {
+    "file": "en-1440-products-turmeric-ground.jpg",
+    "mean_absolute_pixel_error": 0.0,
+    "identical": true
+  },
+  {
+    "file": "en-390-home.jpg",
+    "mean_absolute_pixel_error": 1.869397,
+    "identical": false
+  },
+  {
+    "file": "en-390-products-turmeric-ground.jpg",
+    "mean_absolute_pixel_error": 0.0,
+    "identical": true
+  },
+  {
+    "file": "ar-1440-home.jpg",
+    "mean_absolute_pixel_error": 0.0,
+    "identical": true
+  },
+  {
+    "file": "ar-1440-products-turmeric-ground.jpg",
+    "mean_absolute_pixel_error": 0.0,
+    "identical": true
+  },
+  {
+    "file": "ar-390-home.jpg",
+    "mean_absolute_pixel_error": 1.804392,
+    "identical": false
+  },
+  {
+    "file": "ar-390-products-turmeric-ground.jpg",
+    "mean_absolute_pixel_error": 0.021484,
+    "identical": false
+  }
+]

@@ -22,6 +22,15 @@ for (const locale of locales) {
     assert.ok(html.includes(`${company.origin}${route}`), `canonical ${route}`);
     assert.equal((html.match(/<h1(?:\s|>)/g) || []).length, 1, `one h1: ${route}`);
     assert.doesNotMatch(html, /Pratama|lorem ipsum|dummy copy|placeholder page/i);
+    if (["/about", "/products", "/sustainability", "/contact"].includes(path)) {
+      const page = path.slice(1);
+      const anchor = page === "products" ? "catalog" : `${page}-content`;
+      assert.match(html, new RegExp(`${page}-hero(?:\\.|%2E)webp`), `hero image: ${route}`);
+      assert.match(html, /<header class="site-header header-home"/, `overlay navbar: ${route}`);
+      assert.ok(html.includes(`href="#${anchor}"`) && html.includes(`id="${anchor}"`), `hero anchor: ${route}`);
+    } else if (path.startsWith("/products/")) {
+      assert.doesNotMatch(html, /<header class="site-header header-home/, `detail navbar unchanged: ${route}`);
+    }
     for (const match of html.matchAll(/src="(\/[^"\s]+)"/g)) images.add(match[1].replaceAll("&amp;", "&"));
     for (const match of html.matchAll(/href="(\/[^"\s]+)"/g)) internalLinks.add(match[1].replaceAll("&amp;", "&").split("#")[0]);
     results.push({ path: route, status: response.status });

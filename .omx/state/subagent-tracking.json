@@ -4,7 +4,7 @@
     "01a16d22-43ec-7030-9baf-d6efd0a0b744": {
       "session_id": "01a16d22-43ec-7030-9baf-d6efd0a0b744",
       "leader_thread_id": "01a16d28-3702-7212-84fd-97684b0f9524",
-      "updated_at": "2026-10-24T10:54:04.707Z",
+      "updated_at": "2026-10-24T11:05:33.160Z",
       "threads": {
         "01a16d28-3702-7212-84fd-97684b0f9524": {
           "thread_id": "01a16d28-3702-7212-84fd-97684b0f9524",
@@ -34,9 +34,9 @@
           "thread_id": "01a16d2b-8a84-7853-94a8-c822b55328a7",
           "kind": "subagent",
           "first_seen_at": "2026-10-24T09:19:26.041Z",
-          "last_seen_at": "2026-10-24T09:26:14.099Z",
-          "last_turn_id": "01a16d35-9fd9-70e2-8a4c-92cccde9492c",
-          "turn_count": 2
+          "last_seen_at": "2026-10-24T11:05:33.160Z",
+          "last_turn_id": "01a16d92-7ef9-7512-9e00-527a3e106624",
+          "turn_count": 4
         },
         "01a16d3c-723c-7842-931c-6010dc28efa2": {
           "thread_id": "01a16d3c-723c-7842-931c-6010dc28efa2",

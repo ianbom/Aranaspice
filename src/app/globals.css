@@ -99,6 +99,7 @@ html[data-intro-seen] .boot-splash { display: none; }
 .hero-download { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; font-size: 12px; text-decoration: underline; text-underline-offset: 6px; }
 .hero-foot { position: absolute; bottom: 24px; inset-inline: 0; display: flex; justify-content: space-between; align-items: center; gap: 22px; border-top: 1px solid #f8f7f230; padding-top: 18px; font-size: 8px; letter-spacing: .1em; color: var(--warm-ivory); }
 .hero-foot a { display: grid; place-items: center; min-width: 44px; min-height: 44px; border: 1px solid #f8f7f260; border-radius: 50%; }
+@media (max-width: 1150px) { .hero-foot > span:last-child { margin-inline-end: 60px; } }
 .intro-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
 .intro-visual { position: relative; padding-inline-end: 30px; }
 .photo-frame { height: 590px; position: relative; border-radius: 10px; overflow: hidden; }

@@ -3,3 +3,4 @@
 {"event":"prompt_session_provenance_rejected","reason":"foreign_child","producer":"native","selected_root_status":"usable","relation":"explicit-independent","timestamp":"2026-10-24T09:34:20.855Z","_ts":"2026-10-24T09:34:20.857Z"}
 {"event":"prompt_session_provenance_rejected","reason":"foreign_child","producer":"native","selected_root_status":"usable","relation":"explicit-independent","timestamp":"2026-10-24T10:54:06.139Z","_ts":"2026-10-24T10:54:06.140Z"}
 {"event":"prompt_session_provenance_rejected","reason":"foreign_child","producer":"native","selected_root_status":"usable","relation":"explicit-independent","timestamp":"2026-10-24T10:57:15.253Z","_ts":"2026-10-24T10:57:15.254Z"}
+{"event":"prompt_session_provenance_rejected","reason":"foreign_child","producer":"native","selected_root_status":"usable","relation":"explicit-independent","timestamp":"2026-10-24T11:01:21.128Z","_ts":"2026-10-24T11:01:21.131Z"}

@@ -21,6 +21,7 @@ def evaluate(expression):
 def navigate(path):
     goto_url(origin + path)
     wait_for_load()
+    cdp("Page.bringToFront")
     for attempt in range(20):
         if evaluate('document.fonts.status') == 'loaded':
             break
@@ -75,12 +76,12 @@ for locale in ['en', 'ar']:
                 evaluate(f'window.scrollTo({{top:{top},behavior:"instant"}})')
                 time.sleep(.08)
             for attempt in range(30):
-                if evaluate('[...document.images].every(image=>image.complete&&image.naturalWidth>0)'):
+                if evaluate('[...document.images].every(image=>!image.getClientRects().length||(image.complete&&image.naturalWidth>0))'):
                     break
                 time.sleep(.15)
             evaluate('window.scrollTo({top:0,behavior:"instant"})')
             time.sleep(.8)
-            state = evaluate('({width:innerWidth,client:document.documentElement.clientWidth,scroll:document.documentElement.scrollWidth,lang:document.documentElement.lang,dir:document.documentElement.dir,broken:[...document.images].filter(image=>!image.complete||image.naturalWidth===0).map(image=>image.alt),h1:document.querySelector("h1").innerText})')
+            state = evaluate('({width:innerWidth,client:document.documentElement.clientWidth,scroll:document.documentElement.scrollWidth,lang:document.documentElement.lang,dir:document.documentElement.dir,broken:[...document.images].filter(image=>image.getClientRects().length&&(!image.complete||image.naturalWidth===0)).map(image=>image.alt),h1:document.querySelector("h1").innerText})')
             assert state['scroll'] <= state['client'], state
             assert state['lang'] == locale
             assert state['dir'] == ('rtl' if locale == 'ar' else 'ltr')
@@ -101,7 +102,10 @@ for locale in ['en', 'ar']:
                 capture(f'{locale}-{page}-{width}-full', True)
             if page == 'home':
                 evaluate('window.scrollTo({top:180,behavior:"instant"})')
-                time.sleep(.35)
+                for attempt in range(20):
+                    if evaluate('getComputedStyle(document.querySelector(".site-header")).backgroundColor') == 'rgb(32, 59, 42)':
+                        break
+                    time.sleep(.1)
                 assert evaluate('getComputedStyle(document.querySelector(".site-header")).backgroundColor') == 'rgb(32, 59, 42)'
                 if locale == 'en' and width in [1440, 390]:
                     capture(f'en-navbar-scrolled-{width}')

@@ -1,0 +1,5 @@
+
+> aranaspice@1.0.0 check
+> node --experimental-strip-types scripts/check.ts
+
+PASS: catalog counts, locales, validation, Unicode WhatsApp encoding

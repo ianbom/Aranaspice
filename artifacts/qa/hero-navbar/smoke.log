@@ -1,0 +1,5 @@
+
+> aranaspice@1.0.0 smoke
+> node --experimental-strip-types scripts/smoke.ts
+
+PASS: 84 pages, 38 rendered resources, 91 internal links, 404s, PDF checksum, sitemap, robots

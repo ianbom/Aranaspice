@@ -1,0 +1,56 @@
+[
+  {
+    "foreground": "charcoal",
+    "background": "ivory",
+    "ratio": 14.0,
+    "AA_normal_text": true
+  },
+  {
+    "foreground": "green",
+    "background": "ivory",
+    "ratio": 6.02,
+    "AA_normal_text": true
+  },
+  {
+    "foreground": "ivory",
+    "background": "green",
+    "ratio": 6.02,
+    "AA_normal_text": true
+  },
+  {
+    "foreground": "ivory",
+    "background": "forest",
+    "ratio": 11.38,
+    "AA_normal_text": true
+  },
+  {
+    "foreground": "forest",
+    "background": "gold",
+    "ratio": 6.53,
+    "AA_normal_text": true
+  },
+  {
+    "foreground": "gold",
+    "background": "forest",
+    "ratio": 6.53,
+    "AA_normal_text": true
+  },
+  {
+    "foreground": "muted",
+    "background": "ivory",
+    "ratio": 6.16,
+    "AA_normal_text": true
+  },
+  {
+    "foreground": "muted",
+    "background": "sage",
+    "ratio": 5.69,
+    "AA_normal_text": true
+  },
+  {
+    "foreground": "darkMuted",
+    "background": "forest",
+    "ratio": 7.97,
+    "AA_normal_text": true
+  }
+]

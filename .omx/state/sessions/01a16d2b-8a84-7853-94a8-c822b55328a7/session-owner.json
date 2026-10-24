@@ -1,0 +1,14 @@
+{
+  "session_id": "01a16d2b-8a84-7853-94a8-c822b55328a7",
+  "native_session_id": "01a16d2b-8a84-7853-94a8-c822b55328a7",
+  "started_at": "2026-10-24T09:09:57.339Z",
+  "cwd": "E:\\Webgrow\\WCKopi",
+  "state_root": "E:\\Webgrow\\WCKopi\\.omx\\state\\sessions\\01a16d2b-8a84-7853-94a8-c822b55328a7",
+  "pid": 4472,
+  "platform": "win32",
+  "identity_schema_version": 2,
+  "process_identity": {
+    "platform": "win32",
+    "birth": "134372838713282777"
+  }
+}

@@ -1,0 +1,58 @@
+
+> aranaspice@1.0.0 build
+> next build
+
+▲ Next.js 16.4.3 (Turbopack)
+✓ Running next.config.ts took 31ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 1652ms
+  Running TypeScript ...
+  Finished TypeScript in 6.8s ...
+  Collecting page data using 7 workers ...
+  Generating static pages using 7 workers (0/88) ...
+  Generating static pages using 7 workers (22/88) 
+  Generating static pages using 7 workers (44/88) 
+  Generating static pages using 7 workers (66/88) 
+✓ Generating static pages using 7 workers (88/88) in 3.9s
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /_not-found
+├   /[locale]
+│ ├ ● /en
+│ ├ ● /id
+│ ├ ● /zh
+│ └ ● /ar
+├   /[locale]/about
+│ ├ ● /en/about
+│ ├ ● /id/about
+│ ├ ● /zh/about
+│ └ ● /ar/about
+├   /[locale]/contact
+│ ├ ● /en/contact
+│ ├ ● /id/contact
+│ ├ ● /zh/contact
+│ └ ● /ar/contact
+├   /[locale]/products
+│ ├ ● /en/products
+│ ├ ● /id/products
+│ ├ ● /zh/products
+│ └ ● /ar/products
+├   /[locale]/products/[slug]
+│ ├ ● /en/products/dried-sliced-turmeric
+│ ├ ● /en/products/dried-sliced-ginger
+│ ├ ● /en/products/dried-sliced-galangal
+│ └ ● [+61 more paths]
+├   /[locale]/sustainability
+│ ├ ● /en/sustainability
+│ ├ ● /id/sustainability
+│ ├ ● /zh/sustainability
+│ └ ● /ar/sustainability
+├ ○ /robots.txt
+└ ○ /sitemap.xml
+
+
+○  (Static)  prerendered as static content
+●  (SSG)     prerendered as static HTML (uses generateStaticParams)
+

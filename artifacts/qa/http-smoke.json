@@ -1,0 +1,345 @@
+{
+  "origin": "http://localhost:3000",
+  "pages": [
+    {
+      "path": "/en",
+      "status": 200
+    },
+    {
+      "path": "/en/about",
+      "status": 200
+    },
+    {
+      "path": "/en/products",
+      "status": 200
+    },
+    {
+      "path": "/en/sustainability",
+      "status": 200
+    },
+    {
+      "path": "/en/contact",
+      "status": 200
+    },
+    {
+      "path": "/en/products/dried-sliced-turmeric",
+      "status": 200
+    },
+    {
+      "path": "/en/products/dried-sliced-ginger",
+      "status": 200
+    },
+    {
+      "path": "/en/products/dried-sliced-galangal",
+      "status": 200
+    },
+    {
+      "path": "/en/products/dried-sliced-curcuma",
+      "status": 200
+    },
+    {
+      "path": "/en/products/mace",
+      "status": 200
+    },
+    {
+      "path": "/en/products/nutmeg",
+      "status": 200
+    },
+    {
+      "path": "/en/products/long-pepper",
+      "status": 200
+    },
+    {
+      "path": "/en/products/cubeb",
+      "status": 200
+    },
+    {
+      "path": "/en/products/clove",
+      "status": 200
+    },
+    {
+      "path": "/en/products/candlenut",
+      "status": 200
+    },
+    {
+      "path": "/en/products/turmeric-ground",
+      "status": 200
+    },
+    {
+      "path": "/en/products/ginger-ground",
+      "status": 200
+    },
+    {
+      "path": "/en/products/red-ginger-ground",
+      "status": 200
+    },
+    {
+      "path": "/en/products/white-pepper-ground",
+      "status": 200
+    },
+    {
+      "path": "/en/products/spice-mix-powder",
+      "status": 200
+    },
+    {
+      "path": "/en/products/spice-chocolate",
+      "status": 200
+    },
+    {
+      "path": "/id",
+      "status": 200
+    },
+    {
+      "path": "/id/about",
+      "status": 200
+    },
+    {
+      "path": "/id/products",
+      "status": 200
+    },
+    {
+      "path": "/id/sustainability",
+      "status": 200
+    },
+    {
+      "path": "/id/contact",
+      "status": 200
+    },
+    {
+      "path": "/id/products/dried-sliced-turmeric",
+      "status": 200
+    },
+    {
+      "path": "/id/products/dried-sliced-ginger",
+      "status": 200
+    },
+    {
+      "path": "/id/products/dried-sliced-galangal",
+      "status": 200
+    },
+    {
+      "path": "/id/products/dried-sliced-curcuma",
+      "status": 200
+    },
+    {
+      "path": "/id/products/mace",
+      "status": 200
+    },
+    {
+      "path": "/id/products/nutmeg",
+      "status": 200
+    },
+    {
+      "path": "/id/products/long-pepper",
+      "status": 200
+    },
+    {
+      "path": "/id/products/cubeb",
+      "status": 200
+    },
+    {
+      "path": "/id/products/clove",
+      "status": 200
+    },
+    {
+      "path": "/id/products/candlenut",
+      "status": 200
+    },
+    {
+      "path": "/id/products/turmeric-ground",
+      "status": 200
+    },
+    {
+      "path": "/id/products/ginger-ground",
+      "status": 200
+    },
+    {
+      "path": "/id/products/red-ginger-ground",
+      "status": 200
+    },
+    {
+      "path": "/id/products/white-pepper-ground",
+      "status": 200
+    },
+    {
+      "path": "/id/products/spice-mix-powder",
+      "status": 200
+    },
+    {
+      "path": "/id/products/spice-chocolate",
+      "status": 200
+    },
+    {
+      "path": "/zh",
+      "status": 200
+    },
+    {
+      "path": "/zh/about",
+      "status": 200
+    },
+    {
+      "path": "/zh/products",
+      "status": 200
+    },
+    {
+      "path": "/zh/sustainability",
+      "status": 200
+    },
+    {
+      "path": "/zh/contact",
+      "status": 200
+    },
+    {
+      "path": "/zh/products/dried-sliced-turmeric",
+      "status": 200
+    },
+    {
+      "path": "/zh/products/dried-sliced-ginger",
+      "status": 200
+    },
+    {
+      "path": "/zh/products/dried-sliced-galangal",
+      "status": 200
+    },
+    {
+      "path": "/zh/products/dried-sliced-curcuma",
+      "status": 200
+    },
+    {
+      "path": "/zh/products/mace",
+      "status": 200
+    },
+    {
+      "path": "/zh/products/nutmeg",
+      "status": 200
+    },
+    {
+      "path": "/zh/products/long-pepper",
+      "status": 200
+    },
+    {
+      "path": "/zh/products/cubeb",
+      "status": 200
+    },
+    {
+      "path": "/zh/products/clove",
+      "status": 200
+    },
+    {
+      "path": "/zh/products/candlenut",
+      "status": 200
+    },
+    {
+      "path": "/zh/products/turmeric-ground",
+      "status": 200
+    },
+    {
+      "path": "/zh/products/ginger-ground",
+      "status": 200
+    },
+    {
+      "path": "/zh/products/red-ginger-ground",
+      "status": 200
+    },
+    {
+      "path": "/zh/products/white-pepper-ground",
+      "status": 200
+    },
+    {
+      "path": "/zh/products/spice-mix-powder",
+      "status": 200
+    },
+    {
+      "path": "/zh/products/spice-chocolate",
+      "status": 200
+    },
+    {
+      "path": "/ar",
+      "status": 200
+    },
+    {
+      "path": "/ar/about",
+      "status": 200
+    },
+    {
+      "path": "/ar/products",
+      "status": 200
+    },
+    {
+      "path": "/ar/sustainability",
+      "status": 200
+    },
+    {
+      "path": "/ar/contact",
+      "status": 200
+    },
+    {
+      "path": "/ar/products/dried-sliced-turmeric",
+      "status": 200
+    },
+    {
+      "path": "/ar/products/dried-sliced-ginger",
+      "status": 200
+    },
+    {
+      "path": "/ar/products/dried-sliced-galangal",
+      "status": 200
+    },
+    {
+      "path": "/ar/products/dried-sliced-curcuma",
+      "status": 200
+    },
+    {
+      "path": "/ar/products/mace",
+      "status": 200
+    },
+    {
+      "path": "/ar/products/nutmeg",
+      "status": 200
+    },
+    {
+      "path": "/ar/products/long-pepper",
+      "status": 200
+    },
+    {
+      "path": "/ar/products/cubeb",
+      "status": 200
+    },
+    {
+      "path": "/ar/products/clove",
+      "status": 200
+    },
+    {
+      "path": "/ar/products/candlenut",
+      "status": 200
+    },
+    {
+      "path": "/ar/products/turmeric-ground",
+      "status": 200
+    },
+    {
+      "path": "/ar/products/ginger-ground",
+      "status": 200
+    },
+    {
+      "path": "/ar/products/red-ginger-ground",
+      "status": 200
+    },
+    {
+      "path": "/ar/products/white-pepper-ground",
+      "status": 200
+    },
+    {
+      "path": "/ar/products/spice-mix-powder",
+      "status": 200
+    },
+    {
+      "path": "/ar/products/spice-chocolate",
+      "status": 200
+    }
+  ],
+  "resources": 130,
+  "pdf": "SHA-256 matches original",
+  "invalidRoutes": "404",
+  "sitemap": 84
+}

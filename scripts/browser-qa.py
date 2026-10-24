@@ -74,12 +74,20 @@ for locale in ['en', 'ar']:
             height = evaluate('document.documentElement.scrollHeight')
             for top in range(0, height, 700):
                 evaluate(f'window.scrollTo({{top:{top},behavior:"instant"}})')
+                cdp("Page.captureScreenshot", format="jpeg", quality=10)
                 time.sleep(.08)
             for attempt in range(30):
                 if evaluate('[...document.images].every(image=>!image.getClientRects().length||(image.complete&&image.naturalWidth>0))'):
                     break
                 time.sleep(.15)
             evaluate('window.scrollTo({top:0,behavior:"instant"})')
+            cdp("Page.captureScreenshot", format="jpeg", quality=10)
+            if page == 'home':
+                for attempt in range(30):
+                    cdp("Page.captureScreenshot", format="jpeg", quality=10)
+                    if evaluate('getComputedStyle(document.querySelector(".site-header")).backgroundColor') == 'rgba(0, 0, 0, 0)':
+                        break
+                    time.sleep(.1)
             time.sleep(.8)
             state = evaluate('({width:innerWidth,client:document.documentElement.clientWidth,scroll:document.documentElement.scrollWidth,lang:document.documentElement.lang,dir:document.documentElement.dir,broken:[...document.images].filter(image=>image.getClientRects().length&&(!image.complete||image.naturalWidth===0)).map(image=>image.alt),h1:document.querySelector("h1").innerText})')
             assert state['scroll'] <= state['client'], state
@@ -102,7 +110,9 @@ for locale in ['en', 'ar']:
                 capture(f'{locale}-{page}-{width}-full', True)
             if page == 'home':
                 evaluate('window.scrollTo({top:180,behavior:"instant"})')
+                cdp("Page.captureScreenshot", format="jpeg", quality=10)
                 for attempt in range(20):
+                    cdp("Page.captureScreenshot", format="jpeg", quality=10)
                     if evaluate('getComputedStyle(document.querySelector(".site-header")).backgroundColor') == 'rgb(32, 59, 42)':
                         break
                     time.sleep(.1)
@@ -122,7 +132,11 @@ for name, count in [('Whole Spices10', 10), ('Ground Spices5', 5), ('Innovative 
     candidates = cdp('Accessibility.getFullAXTree')['nodes']
     item = next(item for item in candidates if item.get('role', {}).get('value') == 'button' and item.get('name', {}).get('value', '').replace(' ', '').lower() == name.replace(' ', '').lower())
     click_node(item)
-    time.sleep(.15)
+    for attempt in range(20):
+        cdp("Page.captureScreenshot", format="jpeg", quality=10)
+        if evaluate('document.querySelectorAll(".product-card").length') == count:
+            break
+        time.sleep(.1)
     assert evaluate('document.querySelectorAll(".product-card").length') == count
 results.append({'check': 'category filters', 'result': '10 / 5 / 1 / 16'})
 evaluate('window.scrollTo({top:0,behavior:"instant"})')

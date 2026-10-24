@@ -1,0 +1,14 @@
+{
+  "sessions": {
+    "01a16d85-307a-7f23-a9a2-e4c34428ed65": {
+      "ordinary_no_progress_guard": {
+        "fingerprint": "ordinary|hero kini memakai foto yang diberikan, dengan copy dan cta di kiri. navbar mengikuti referensi nusa: transparan di hero, solid saat halaman digulir; logo tampil tanpa kotak putih. plus jakarta sans dan inter disajikan lokal, dengan dukungan font arab dan mandarin. konten serta fungsi lain tetap. verifikasi lulus: lint, typecheck, integritas, build, smoke test 84 halaman, dan browser qa 23 skenario. screenshot desktop, tablet, mobile—26 gambar—tersimpan di `artifacts/qa/hero-navbar/`; laporan di `artifacts/qa/hero-navbar/report.md:1`. situs aktif di `http://localhost:3000/en`; jalankan kembali dengan `npm run dev`.",
+        "first_seen_at": "2026-10-24T11:19:29.200Z",
+        "last_seen_at": "2026-10-24T11:19:29.200Z",
+        "repeat_count": 1,
+        "last_turn_id": "01a16d8b-ddd7-7f11-b9b9-fc55efbce54d",
+        "last_thread_id": null
+      }
+    }
+  }
+}

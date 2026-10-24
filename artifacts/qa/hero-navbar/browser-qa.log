@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\Windows 11 Home\.local\bin\browser-harness.exe\__main__.py", line 10, in <module>
+  File "C:\Users\Windows 11 Home\AppData\Roaming\uv\tools\browser-harness\Lib\site-packages\browser_harness\run.py", line 247, in main
+    _run(args)
+  File "C:\Users\Windows 11 Home\AppData\Roaming\uv\tools\browser-harness\Lib\site-packages\browser_harness\run.py", line 387, in _run
+    exec(code, globals())
+  File "<string>", line 88, in <module>
+AssertionError: {'width': 1440, 'client': 1425, 'scroll': 1425, 'lang': 'en', 'dir': 'ltr', 'broken': ['HACCP', 'HALAL Indonesia', 'Company exhibition documentation', 'Partnership discussion documented in the company profile', 'Aranaspice'], 'h1': 'INDONESIAN SPICES.\nSHARED GROWTH.'}

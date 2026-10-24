@@ -1,0 +1,32 @@
+[
+  {
+    "locale": "en",
+    "route": "",
+    "fastScroll": "pass"
+  },
+  {
+    "locale": "en",
+    "route": "/about",
+    "fastScroll": "pass"
+  },
+  {
+    "locale": "en",
+    "route": "/products/dried-sliced-turmeric",
+    "fastScroll": "pass"
+  },
+  {
+    "locale": "ar",
+    "route": "",
+    "fastScroll": "pass"
+  },
+  {
+    "locale": "ar",
+    "route": "/about",
+    "fastScroll": "pass"
+  },
+  {
+    "locale": "ar",
+    "route": "/products/dried-sliced-turmeric",
+    "fastScroll": "pass"
+  }
+]

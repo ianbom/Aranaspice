@@ -1,0 +1,62 @@
+[
+  {
+    "locale": "id",
+    "page": "home",
+    "result": "pass"
+  },
+  {
+    "locale": "id",
+    "page": "about",
+    "result": "pass"
+  },
+  {
+    "locale": "id",
+    "page": "products",
+    "result": "pass"
+  },
+  {
+    "locale": "id",
+    "page": "product",
+    "result": "pass"
+  },
+  {
+    "locale": "id",
+    "page": "sustainability",
+    "result": "pass"
+  },
+  {
+    "locale": "id",
+    "page": "contact",
+    "result": "pass"
+  },
+  {
+    "locale": "zh",
+    "page": "home",
+    "result": "pass"
+  },
+  {
+    "locale": "zh",
+    "page": "about",
+    "result": "pass"
+  },
+  {
+    "locale": "zh",
+    "page": "products",
+    "result": "pass"
+  },
+  {
+    "locale": "zh",
+    "page": "product",
+    "result": "pass"
+  },
+  {
+    "locale": "zh",
+    "page": "sustainability",
+    "result": "pass"
+  },
+  {
+    "locale": "zh",
+    "page": "contact",
+    "result": "pass"
+  }
+]

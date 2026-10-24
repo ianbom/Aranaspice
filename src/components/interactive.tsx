@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState, type FormEvent } from "react";
+import { useContext, useEffect, useLayoutEffect, useRef, useState, type FormEvent } from "react";
+import { MotionRefreshContext } from "@/components/scroll-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname, useParams } from "next/navigation";
@@ -55,16 +56,18 @@ export function BootSplash() {
 }
 
 export function Faq({ locale }: { locale: Locale }) {
-  return <Accordion type="single" collapsible className="faq-accordion">{faqs.map((faq, index) => <AccordionItem value={`faq-${index}`} key={index}><AccordionTrigger>{faq.question[locale]}</AccordionTrigger><AccordionContent>{faq.answer[locale]}</AccordionContent></AccordionItem>)}</Accordion>;
+  return <Accordion type="single" collapsible className="faq-accordion">{faqs.map((faq, index) => <AccordionItem value={`faq-${index}`} key={index} data-motion="faq-item"><AccordionTrigger>{faq.question[locale]}</AccordionTrigger><AccordionContent>{faq.answer[locale]}</AccordionContent></AccordionItem>)}</Accordion>;
 }
 
 export function Catalog({ locale }: { locale: Locale }) {
   const text = getCopy(locale);
+  const refreshMotion = useContext(MotionRefreshContext);
   const [category, setCategory] = useState<Category | "all">("all");
   const shown = products.filter((product) => category === "all" || product.category === category);
+  useLayoutEffect(() => { refreshMotion(true); }, [category, refreshMotion]);
   return <><div className="filter-bar" role="group" aria-label={text.filter}>{(["all", "whole", "ground", "innovative"] as const).map((value) => <button type="button" aria-pressed={category === value} key={value} onClick={() => setCategory(value)}>{value === "all" ? text.allProducts : categories[value][locale]}<span>{value === "all" ? 16 : products.filter((product) => product.category === value).length}</span></button>)}</div>
     <p className="result-count" aria-live="polite">{shown.length} {text.productCount}</p>
-    <div className="product-grid">{shown.map((product, index) => <article className="product-card" key={product.slug}>
+    <div className="product-grid">{shown.map((product, index) => <article className="product-card" data-motion="card" key={product.slug}>
       <Link className={`product-photo ${product.category === "innovative" || product.slug === "spice-mix-powder" ? "editorial-photo" : ""}`} href={`/${locale}/products/${product.slug}`} tabIndex={-1} aria-hidden="true"><Image src={`/images/${product.slug}.webp`} alt="" fill sizes="(max-width: 640px) 90vw, (max-width: 1000px) 44vw, 29vw" priority={index < 3} /><span className="round-arrow"><ArrowUpRight size={22} /></span></Link>
       <p className="eyebrow">{categories[product.category][locale]}</p><h2><Link href={`/${locale}/products/${product.slug}`}>{product.name[locale]}</Link></h2><p>{product.description[locale]}</p><Link className="text-link" href={`/${locale}/products/${product.slug}`}>{text.details}<ArrowUpRight size={17} aria-hidden="true" /></Link>
     </article>)}</div></>;
@@ -120,6 +123,7 @@ export function FloatingWhatsApp({ locale }: { locale: Locale }) {
   const [formState, setFormState] = useState({ pathname: "", visible: false });
   useEffect(() => {
     const visible = new Set<Element>();
+    if (typeof window.IntersectionObserver !== "function") return;
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => { if (entry.isIntersecting) visible.add(entry.target); else visible.delete(entry.target); });
       setFormState({ pathname, visible: visible.size > 0 });

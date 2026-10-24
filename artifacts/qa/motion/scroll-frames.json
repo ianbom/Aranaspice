@@ -1,0 +1,53 @@
+{
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/155.0.8059.85",
+    "revision": "@0e66b94549a8bd85f03fbdf189b752d6e7b63c32",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+    "jsVersion": "15.5.35.25"
+  },
+  "sequence": [
+    {
+      "frame": "01.jpg",
+      "scrollY": 790.4000244140625,
+      "photoMask": "none",
+      "copyOpacity": "0.958264"
+    },
+    {
+      "frame": "02.jpg",
+      "scrollY": 920,
+      "photoMask": "none",
+      "copyOpacity": "0.999999"
+    },
+    {
+      "frame": "03.jpg",
+      "scrollY": 970.4000244140625,
+      "photoMask": "none",
+      "copyOpacity": "1"
+    },
+    {
+      "frame": "04.jpg",
+      "scrollY": 1040,
+      "photoMask": "none",
+      "copyOpacity": "1"
+    },
+    {
+      "frame": "05.jpg",
+      "scrollY": 1150.4000244140625,
+      "photoMask": "none",
+      "copyOpacity": "1"
+    },
+    {
+      "frame": "06.jpg",
+      "scrollY": 1320,
+      "photoMask": "none",
+      "copyOpacity": "1"
+    },
+    {
+      "frame": "07.jpg",
+      "scrollY": 1540,
+      "photoMask": "none",
+      "copyOpacity": "1"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "filterCounts": [
+    10,
+    5,
+    1,
+    16,
+    16
+  ],
+  "scrollPreserved": true,
+  "visibleCardsUnhidden": true,
+  "faq": "pointer open and keyboard close",
+  "inquiry": "validation focus and intercepted Unicode message pass, no send",
+  "mobileMenu": "open/close pass",
+  "localeSwitch": "EN to AR preserves product",
+  "observerFallback": "visible text and inputs without IntersectionObserver"
+}

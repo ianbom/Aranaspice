@@ -82,6 +82,78 @@ bdi { direction: ltr; unicode-bidi: isolate; }
 .mobile-sheet nav { display: flex; flex-direction: column; margin-block: 30px; }
 .mobile-sheet nav a { display: flex; justify-content: space-between; padding-block: 16px; border-bottom: 1px solid var(--border); font-size: 19px; }
 .mobile-sheet nav a[aria-current] { font-weight: 800; }
+
+:root { --motion-duration: 680ms; --motion-distance: 24px; --motion-ease: cubic-bezier(0.22, 1, 0.36, 1); --motion-delay-1: 0ms; --motion-delay-2: 70ms; --motion-delay-3: 140ms; --motion-delay-4: 210ms; }
+@media (prefers-reduced-motion: no-preference) {
+  [data-motion] { transition: opacity var(--motion-duration) var(--motion-ease) var(--motion-delay, 0ms), translate var(--motion-duration) var(--motion-ease) var(--motion-delay, 0ms), scale var(--motion-duration) var(--motion-ease) var(--motion-delay, 0ms), rotate var(--motion-duration) var(--motion-ease) var(--motion-delay, 0ms), clip-path var(--motion-duration) var(--motion-ease) var(--motion-delay, 0ms); }
+  [data-motion-state="pending"] { opacity: 0; }
+  [data-motion-state="pending"][data-motion="rise"], [data-motion-state="pending"][data-motion="step"], [data-motion-state="pending"][data-motion="card"], [data-motion-state="pending"][data-motion="faq-item"], [data-motion-state="pending"][data-motion="stamp"] { translate: 0 22px; }
+  [data-motion-state="pending"][data-motion="from-end"] { translate: var(--motion-distance) 0; }
+  [data-motion-state="pending"][data-motion="from-start"] { translate: calc(-1 * var(--motion-distance)) 0; }
+  [dir="rtl"] [data-motion-state="pending"][data-motion="from-end"] { translate: calc(-1 * var(--motion-distance)) 0; }
+  [dir="rtl"] [data-motion-state="pending"][data-motion="from-start"] { translate: var(--motion-distance) 0; }
+  [data-motion-state="pending"][data-motion="media-scale"] { scale: 1.03; }
+  [data-motion-state="pending"][data-motion="icon"] { scale: .98; }
+  [data-motion-state="pending"][data-motion="card"] { scale: .99; }
+  [data-motion-state="pending"][data-motion="stamp"] { rotate: -3deg; }
+  [data-motion="image-mask"], [data-motion="mask-start"], [data-motion="mask-end"] { clip-path: inset(0); }
+  [data-motion-state="pending"][data-motion="image-mask"] { clip-path: inset(100% 0 0 0); }
+  [data-motion-state="pending"][data-motion="mask-start"] { clip-path: inset(0 100% 0 0); }
+  [data-motion-state="pending"][data-motion="mask-end"] { clip-path: inset(0 0 0 100%); }
+  [dir="rtl"] [data-motion-state="pending"][data-motion="mask-start"] { clip-path: inset(0 0 0 100%); }
+  [dir="rtl"] [data-motion-state="pending"][data-motion="mask-end"] { clip-path: inset(0 100% 0 0); }
+  .product-card[data-motion-state="entering"] { animation: catalog-card-in 480ms var(--motion-ease) var(--motion-delay, 0ms) both; }
+  @keyframes catalog-card-in { from { opacity: 0; translate: 0 16px; scale: .99; } to { opacity: 1; translate: 0 0; scale: 1; } }
+  [data-motion="step"]:nth-child(5n+2), [data-motion="list-item"]:nth-child(4n+2), [data-motion="card"]:nth-child(3n+2), [data-motion="faq-item"]:nth-child(4n+2) { --motion-delay: var(--motion-delay-2); }
+  [data-motion="step"]:nth-child(5n+3), [data-motion="list-item"]:nth-child(4n+3), [data-motion="card"]:nth-child(3n+3), [data-motion="faq-item"]:nth-child(4n+3) { --motion-delay: var(--motion-delay-3); }
+  [data-motion="step"]:nth-child(5n+4), [data-motion="list-item"]:nth-child(4n+4), [data-motion="faq-item"]:nth-child(4n+4) { --motion-delay: var(--motion-delay-4); }
+  [data-motion="step"]:nth-child(5n), [data-motion="list-item"]:nth-child(4n) { --motion-delay: var(--motion-delay-4); }
+  [data-motion="map-marker"] { --motion-delay: 70ms; }
+  [data-motion="map-marker"]:nth-of-type(3n+2) { --motion-delay: 140ms; }
+  [data-motion="map-marker"]:nth-of-type(3n) { --motion-delay: 210ms; }
+  .category-small.innovative { --motion-delay: 100ms; }
+  .sdg-strip [data-motion="icon"]:nth-child(3n+2) { --motion-delay: 70ms; }
+  .sdg-strip [data-motion="icon"]:nth-child(3n) { --motion-delay: 140ms; }
+  .market-list [data-motion="list-item"]:nth-child(4n+2) { --motion-delay: var(--motion-delay-2); }
+  .market-list [data-motion="list-item"]:nth-child(4n+3) { --motion-delay: var(--motion-delay-3); }
+  .market-list [data-motion="list-item"]:nth-child(4n) { --motion-delay: var(--motion-delay-4); }
+  .footer-layout > :nth-child(2) { --motion-delay: var(--motion-delay-2); }
+  .footer-layout > :nth-child(3) { --motion-delay: var(--motion-delay-3); }
+  .hero-background { animation: hero-media-in 850ms .72s both var(--motion-ease); }
+  .hero-content { animation: rise-in 650ms .78s both var(--motion-ease); }
+  .hero-foot { animation: motion-fade-in 500ms 950ms both var(--motion-ease); }
+  html[data-intro-seen] .hero-background { animation-delay: 0ms; }
+  html[data-intro-seen] .hero-content { animation-delay: 80ms; }
+  html[data-intro-seen] .hero-foot { animation-delay: 180ms; }
+  .page-heading [data-motion] { animation: rise-in 500ms both var(--motion-ease); }
+  .page-heading h1 { animation-delay: 70ms; }
+  .page-heading .wrap > p:last-child:not(:first-child) { animation-delay: 140ms; }
+  .detail-photo { animation: detail-media-in 650ms both var(--motion-ease); }
+  html[data-motion-reduced] .hero-background, html[data-motion-reduced] .hero-content, html[data-motion-reduced] .hero-foot, html[data-motion-reduced] .page-heading [data-motion], html[data-motion-reduced] .detail-photo { animation: none !important; }
+  @keyframes detail-media-in { from { scale: .98; } to { scale: 1; } }
+  @keyframes hero-media-in { from { opacity: .65; scale: 1.035; } to { opacity: 1; scale: 1; } }
+  @keyframes rise-in { from { opacity: 0; translate: 0 20px; } to { opacity: 1; translate: 0 0; } }
+  @keyframes motion-fade-in { from { opacity: 0; } to { opacity: 1; } }
+}
+@media (max-width: 640px) and (prefers-reduced-motion: no-preference) {
+  :root { --motion-duration: 480ms; --motion-distance: 12px; }
+  [data-motion-state="pending"][data-motion="rise"], [data-motion-state="pending"][data-motion="step"], [data-motion-state="pending"][data-motion="card"], [data-motion-state="pending"][data-motion="faq-item"], [data-motion-state="pending"][data-motion="stamp"] { translate: 0 12px; }
+  [data-motion="step"], [data-motion="list-item"], [data-motion="card"], [data-motion="faq-item"] { --motion-delay: 0ms; }
+  .market-list [data-motion="list-item"]:nth-child(3n+2) { --motion-delay: var(--motion-delay-2); }
+  .market-list [data-motion="list-item"]:nth-child(3n) { --motion-delay: var(--motion-delay-3); }
+  .product-grid .product-card:nth-child(2) { --motion-delay: 70ms; }
+  .product-grid .product-card:nth-child(3) { --motion-delay: 140ms; }
+  .hero-background { animation-duration: 600ms; }
+  .hero-content { animation-duration: 450ms; }
+  .detail-photo { animation-duration: 480ms; }
+  @keyframes catalog-card-in { from { opacity: 0; translate: 0 10px; scale: .99; } to { opacity: 1; translate: 0 0; scale: 1; } }
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-motion], [data-motion-state="pending"] { opacity: 1 !important; translate: none !important; scale: none !important; rotate: none !important; clip-path: none !important; transition: none !important; animation: none !important; }
+  [data-motion-state="entering"] { opacity: 1 !important; translate: none !important; scale: none !important; animation: none !important; }
+  .hero-background, .hero-content, .hero-foot, .detail-photo { animation: none !important; }
+}
+
 .boot-splash { position: fixed; inset: 0; z-index: 100; background: var(--soft-sage); display: flex; align-items: center; justify-content: center; pointer-events: none; animation: boot-away .7s ease-in-out forwards; }
 html[data-intro-seen] .boot-splash { display: none; }
 @keyframes boot-away { 0%, 38% { opacity: 1; } 99% { opacity: 0; visibility: visible; } 100% { opacity: 0; visibility: hidden; } }
@@ -499,10 +571,6 @@ html[lang="zh"] .hero-content h1 { font-size: clamp(40px, 4.3vw, 64px); }
   .hero-background { object-position: 38% center; }
   html[lang="ar"] .hero-content h1 { font-size: 39px; }
   html[lang="zh"] .hero-content h1 { font-size: 40px; }
-}
-@media (prefers-reduced-motion: no-preference) {
-  .hero-content { animation: rise-in .65s .1s both; }
-  @keyframes rise-in { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

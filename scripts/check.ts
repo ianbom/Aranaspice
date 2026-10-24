@@ -2,7 +2,18 @@ import assert from "node:assert/strict";
 import { products, locales } from "../src/lib/catalog.ts";
 import { buildWhatsAppUrl, validateInquiry } from "../src/lib/inquiry.ts";
 import { copy } from "../src/lib/dictionary.ts";
-import { existsSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
+
+const motionCss = readFileSync("src/app/globals.css", "utf8");
+const motionRuntime = readFileSync("src/components/scroll-motion.tsx", "utf8");
+const motionDelays = [...motionCss.matchAll(/--motion-delay(?:-\d+)?:\s*(\d+)ms/g)].map((match) => Number(match[1]));
+assert.ok(motionDelays.length > 0 && Math.max(...motionDelays) <= 250);
+assert.match(motionCss, /@media \(prefers-reduced-motion: no-preference\) \{\s*\[data-motion\]/);
+assert.match(motionCss, /\[data-motion\], \[data-motion-state="pending"\] \{ opacity: 1 !important;[\s\S]*?transition: none !important; animation: none !important;/);
+assert.match(motionRuntime, /if \(typeof window.IntersectionObserver !== "function"\) return;/);
+assert.match(motionRuntime, /const revealed = new WeakSet<Element>\(\)/);
+assert.match(motionCss, /html\[data-motion-reduced\][^\n]+animation: none !important;/);
+assert.match(motionRuntime, /dataset.motionReduced = "true"/);
 
 assert.equal(products.length, 16);
 assert.equal(new Set(products.map((product) => product.slug)).size, 16);
@@ -36,4 +47,4 @@ for (const quantity of ["0", "-1", "Infinity", "NaN", "abc"]) {
 assert.deepEqual(validateInquiry({ ...buyer, quantity: "" }), {});
 assert.equal(validateInquiry({ ...buyer, name: " " }).name, "required");
 assert.equal(validateInquiry({ ...buyer, email: "bad@" }).email, "email");
-console.log("PASS: catalog counts, locales, validation, Unicode WhatsApp encoding");
+console.log("PASS: catalog, locales, validation, Unicode WhatsApp, and motion fallback/stagger checks");

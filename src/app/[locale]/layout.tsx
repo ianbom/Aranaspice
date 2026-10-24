@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { company, isLocale, locales, markets } from "@/lib/catalog";
 import { Header, BootSplash, FloatingWhatsApp } from "@/components/interactive";
 import { Footer } from "@/components/sections";
+import { ScrollMotionProvider } from "@/components/scroll-motion";
 import "../globals.css";
 
 const body = localFont({ src: "../../../public/fonts/body.ttf", variable: "--font-body", weight: "100 900", display: "swap" });
@@ -28,5 +29,5 @@ export default async function LocaleLayout({ children, params }: { children: Rea
     sameAs: ["https://www.instagram.com/saribhuwana/", "https://www.instagram.com/aranaspice.id/"],
     areaServed: markets.map((market) => ({ "@type": "Place", name: market.name.en })),
   };
-  return <html suppressHydrationWarning lang={locale} dir={locale === "ar" ? "rtl" : "ltr"} className={`${body.variable} ${heading.variable} ${arabic.variable} ${chinese.variable}`}><head><script dangerouslySetInnerHTML={{ __html: "try{if(sessionStorage.getItem('aranaspice-intro'))document.documentElement.dataset.introSeen='true';sessionStorage.setItem('aranaspice-intro','1')}catch{document.documentElement.dataset.introSeen='true'}" }} /></head><body><BootSplash /><Header locale={locale} />{children}<Footer locale={locale} /><FloatingWhatsApp locale={locale} /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organization).replace(/</g, "\\u003c") }} /></body></html>;
+  return <html suppressHydrationWarning lang={locale} dir={locale === "ar" ? "rtl" : "ltr"} className={`${body.variable} ${heading.variable} ${arabic.variable} ${chinese.variable}`}><head><script dangerouslySetInnerHTML={{ __html: "try{if(sessionStorage.getItem('aranaspice-intro'))document.documentElement.dataset.introSeen='true';sessionStorage.setItem('aranaspice-intro','1')}catch{document.documentElement.dataset.introSeen='true'}" }} /></head><body><ScrollMotionProvider><BootSplash /><Header locale={locale} />{children}<Footer locale={locale} /><FloatingWhatsApp locale={locale} /></ScrollMotionProvider><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organization).replace(/</g, "\\u003c") }} /></body></html>;
 }

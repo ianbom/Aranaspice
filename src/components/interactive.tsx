@@ -24,7 +24,9 @@ export function Header({ locale }: { locale: Locale }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const overlay = navigation.some((route) => pathname === `/${locale}${route}`);
+  const cleanPath = pathname?.replace(/\/+$/, "") || "";
+  const isActive = (route: string) => cleanPath === `/${locale}${route}`.replace(/\/+$/, "");
+  const overlay = navigation.some((route) => isActive(route));
   useEffect(() => {
     const update = () => setScrolled(window.scrollY > 32);
     const frame = requestAnimationFrame(update);
@@ -36,14 +38,14 @@ export function Header({ locale }: { locale: Locale }) {
     <a className="skip-link" href="#main">{text.skip}</a>
     <div className="header-inner">
       <Link href={`/${locale}`} className="brand" aria-label={`Aranaspice — ${text.home}`}><Image src="/images/aranaspice-logo.webp" alt="Aranaspice" width={96} height={96} priority /></Link>
-      <nav className="desktop-nav" aria-label={text.navigation}>{navigation.map((route, index) => <Link key={route} href={`/${locale}${route}`} aria-current={pathname === `/${locale}${route}` ? "page" : undefined}>{titles[index]}</Link>)}</nav>
+      <nav className="desktop-nav" aria-label={text.navigation}>{navigation.map((route, index) => <Link key={route} href={`/${locale}${route}`} aria-current={isActive(route) ? "page" : undefined}>{titles[index]}</Link>)}</nav>
       <div className="header-actions">
         <label className="locale-control"><Globe2 size={15} aria-hidden="true" /><span className="sr-only">{text.language}</span><select aria-label={text.language} value={locale} onChange={(event) => { window.location.assign(pathname.replace(/^\/(en|id|zh|ar)(?=\/|$)/, `/${event.target.value}`)); }}>{locales.map((language) => <option key={language} value={language} lang={language}>{languageNames[language]}</option>)}</select></label>
         <Link className="button gold header-quote" href={`/${locale}/contact`}>{text.quote}<ArrowUpRight size={16} aria-hidden="true" /></Link>
         <Sheet open={open} onOpenChange={setOpen}><SheetTrigger asChild><Button variant="ghost" className="mobile-trigger" aria-label={text.menu}><Menu size={22} /><span>{text.menu}</span></Button></SheetTrigger><SheetContent side={locale === "ar" ? "left" : "right"} showCloseButton={false} className="mobile-sheet" dir={locale === "ar" ? "rtl" : "ltr"}>
           <div className="sheet-top"><SheetTitle>{text.menu}</SheetTitle><SheetClose asChild><Button variant="ghost" size="icon" aria-label={text.closeMenu}><X /></Button></SheetClose></div>
           <SheetDescription className="sr-only">{text.navigation}</SheetDescription>
-          <nav aria-label={text.navigation}>{navigation.map((route, index) => <Link key={route} href={`/${locale}${route}`} onClick={() => setOpen(false)} aria-current={pathname === `/${locale}${route}` ? "page" : undefined}>{titles[index]}<ArrowUpRight size={20} aria-hidden="true" /></Link>)}</nav>
+          <nav aria-label={text.navigation}>{navigation.map((route, index) => <Link key={route} href={`/${locale}${route}`} onClick={() => setOpen(false)} aria-current={isActive(route) ? "page" : undefined}>{titles[index]}<ArrowUpRight size={20} aria-hidden="true" /></Link>)}</nav>
           <Link className="button gold" href={`/${locale}/contact`} onClick={() => setOpen(false)}>{text.quote}<ArrowUpRight size={18} /></Link>
         </SheetContent></Sheet>
       </div>

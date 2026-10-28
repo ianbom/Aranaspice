@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+
+Host: https://www.saribhuwana.com
+Sitemap: https://www.saribhuwana.com/sitemap.xml

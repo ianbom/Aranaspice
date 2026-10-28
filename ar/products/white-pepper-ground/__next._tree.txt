@@ -1,0 +1,8 @@
+:HL["/_next/static/chunks/3teg_0edzgij_.css","style"]
+:HL["/_next/static/media/body-s.p.1oitrlz8sa0aa.ttf","font",{"crossOrigin":"","type":"font/ttf"}]
+:HL["/_next/static/media/heading-s.p.3-ul6xqoyhml7.ttf","font",{"crossOrigin":"","type":"font/ttf"}]
+4:[["children",{"s":"__PAGE__","h":160}]]
+3:[["children",{"s":{"n":"slug","t":"d","k":"white-pepper-ground","s":[]},"h":65632,"c":"$Q4"}]]
+2:[["children",{"s":"products","h":131136,"c":"$Q3"}]]
+1:[["children",{"s":{"n":"locale","t":"d","k":"ar","s":[]},"h":196656,"c":"$Q2"}]]
+0:{"b":"6zPBjhNsGfSZMwqlUIqT0","t":{"t":{"s":"","h":131152,"c":"$Q1"}}}

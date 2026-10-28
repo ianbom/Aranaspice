@@ -10,7 +10,8 @@
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "check": "node --experimental-strip-types scripts/check.ts",
-    "smoke": "node --experimental-strip-types scripts/smoke.ts"
+    "smoke": "node --experimental-strip-types scripts/smoke.ts",
+    "deploy": "node --experimental-strip-types scripts/deploy.ts"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",
